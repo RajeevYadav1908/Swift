@@ -71,11 +71,31 @@ struct CustomScreen: View {
 
 struct ContentView: View {
     var body: some View {
-        VStack{
-            CustomScreen()
+        
+        NavigationView {
+            Text("My app")
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Image(systemName: "person")
+                    HStack {
+                        Image(systemName: "ellipsis")
+                        Divider()
+                        Image(systemName: "trash")
+                            .frame(width: 32, height: 32)
+                            .background(Color.blue)
+                            .mask(Circle())
+                    }
+                }
+            }
         }
-//        .animation(.easeInOut, value: 20)
-        .transition(.move(edge: .top))
+
+        
+        
+//        VStack{
+//            CustomScreen()
+//        }
+//        .animation(.easeInOut)
+//        .transition(.move(edge: .top))
     }
 }
 
